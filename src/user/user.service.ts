@@ -3,11 +3,9 @@ import { EditUserDto } from 'src/auth/dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CartUser } from './dto';
 
-// CONTROLLER XỬ LÍ LOGIC CỦA USER
 @Injectable()
 export class UserService {
   constructor(private prisma: PrismaService) {}
-  // GET ALL USER
   getAllUser() {
     return this.prisma.user.findMany();
   }

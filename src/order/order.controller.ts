@@ -9,8 +9,6 @@ import {
 } from "@nestjs/common";
 import { OrderService } from "./order.service";
 
-// KHIÊN PHẢI CÓ ACCESS TOKEN GỬI LÊN MỚI PASS MỚI CÓ DATA TRẢ VỀ
-// @UseGuards(JwtGuard)
 @Controller("orders")
 export class OrderController {
   constructor(private orderService: OrderService) {}

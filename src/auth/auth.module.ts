@@ -5,7 +5,6 @@ import { AuthService } from './auth.service';
 import { JwtStrategy } from './strategy';
 
 @Module({
-  // IMPORT JwtModule VÀO ĐÂY ĐỂ SỬ DỤNG
   imports: [JwtModule.register({})],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy],

@@ -1,7 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/prisma/prisma.service";
 
-// CONTROLLER XỬ LÍ LOGIC CỦA USER
 @Injectable()
 export class OrderService {
   constructor(private prisma: PrismaService) {}

@@ -10,7 +10,6 @@ import {
 import { ProductDto } from "./dto";
 import { ProductService } from "./product.service";
 
-// ROUTES CỦA PRODUCT
 @Controller("products")
 export class ProductController {
   constructor(private productService: ProductService) {}

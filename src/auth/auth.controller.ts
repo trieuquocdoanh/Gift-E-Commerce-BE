@@ -9,7 +9,6 @@ export class AuthController {
   // HÀM ĐĂNG KÍ
   @Post("register")
   register(@Body() dto: AuthDtoRegister) {
-    // NHẬN DATA TỪ REQUEST BODY
     return this.authService.register(dto);
   }
 
