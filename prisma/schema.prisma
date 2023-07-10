@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @unique @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email     String   @unique @db.VarChar(255)
+  user_name String   @unique @db.VarChar(255)
+  password  String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+  admin     Boolean  @default(false)
+  cart      Json?
+
+  @@map("users")
+}
+
+model Product {
+  id           Int @id @unique @default(autoincrement())
+  name String   @db.VarChar(255)
+  price        Int
+  quantity     Int
+  color        Json
+  description  Json
+  properties   Json
+  user_group   Json
+  image_url    Json
+  classify     Json
+  type         Json
+  createdAt    DateTime @default(now())
+
+  @@map("products")
+}
+
+model About {
+  id            String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  image_banner  String @db.VarChar(255)
+  information   Json
+  our_team      String @db.VarChar(255)
+  meet_our_team String @db.VarChar(255)
+  member        Json
+
+  @@map("abouts")
+}
+
+model Banner {
+  id     String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  banner Json
+
+  @@map("banners")
+}
+
+model Order {
+  id          String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id      String
+  orderDetail Json
+  status      String
+  infomation  Json
+
+  @@map("orders")
+}
+
+model WishList {
+  id           Int @id @default(autoincrement())
+  userId       String
+  product_id   Int
+
+  @@map("wish-list")
+}

@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  nest_js:
+    image: postgres
+    ports:
+      - 5440:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 01246910451c
+      POSTGRES_DB: nest_js
+    networks:
+      - nest_js_free_code_camp
+networks:
+  nest_js_free_code_camp:
