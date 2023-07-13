@@ -84,3 +84,13 @@ CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "users_user_name_key" ON "users"("user_name");
+
+ALTER TABLE
+    "public"."users"
+ADD
+    COLUMN "active" bool DEFAULT 'true';
+
+ALTER TABLE
+    "public"."products"
+ADD
+    COLUMN "active" bool DEFAULT 'true';
