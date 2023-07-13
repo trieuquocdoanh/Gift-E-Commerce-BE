@@ -6,14 +6,14 @@ import { ProductDto } from "./dto";
 export class ProductService {
   constructor(private prisma: PrismaService) { }
 
-  // GET ALL PRODUCT
+
   getAllProduct() {
     return this.prisma.product.findMany({
       orderBy: { id: "asc" },
     });
   }
 
-  // GET PRODUCT BY ID
+
   getProductById(id: number) {
     const parseId = +id;
     return this.prisma.product.findUnique({
@@ -21,7 +21,7 @@ export class ProductService {
     });
   }
 
-  // SEARCH PRODUCTS BY NAME
+
   searchByName(classify: string) {
     return this.prisma.product.findMany({
       where: {
@@ -46,14 +46,14 @@ export class ProductService {
     }
   }
 
-  // ADD NEW PRODUCT
+
   async addNewProduct(dto: any) {
     try {
       await this.prisma.product.create({
         data: dto,
       });
 
-      // RETURN TEXT
+
       return "THÊM SẢN PHẨM MỚI THÀNH CÔNG";
     } catch (err) {
       console.log("err", err);

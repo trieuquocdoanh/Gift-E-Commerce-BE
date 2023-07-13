@@ -1,13 +1,6 @@
 import { IsString, IsNotEmpty, IsNumber, IsArray } from "class-validator";
 
 export class UserCart {
-  // @IsString()
-  // @IsNotEmpty()
-  // user_name: string;
-
-  // @IsString()
-  // @IsNotEmpty()
-  // password: string;
 
   @IsArray()
   @IsNotEmpty()

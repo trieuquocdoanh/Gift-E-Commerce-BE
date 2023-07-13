@@ -4,9 +4,8 @@ import { BannerDto } from './dto';
 
 @Injectable()
 export class BannerService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
 
-  // GET DATA BANENR
   getDataBanner() {
     try {
       return this.prisma.banner.findMany();
@@ -15,7 +14,7 @@ export class BannerService {
     }
   }
 
-  // ADD DATA BANNER
+
   async addDataBanner(dto: BannerDto) {
     try {
       await this.prisma.banner.create({
@@ -24,7 +23,7 @@ export class BannerService {
         },
       });
 
-      // RETURN
+
       return 'THÊM DATA BANNER THÀNH CÔNG';
     } catch (err) {
       return 'LỖI SERVER';

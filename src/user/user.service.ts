@@ -3,16 +3,16 @@ import { EditUserDto } from 'src/auth/dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CartUser } from './dto';
 
-// CONTROLLER XỬ LÍ LOGIC CỦA USER
+
 @Injectable()
 export class UserService {
   constructor(private prisma: PrismaService) { }
-  // GET ALL USER
+
   getAllUser() {
     return this.prisma.user.findMany();
   }
 
-  // DELETE USER BY ID
+
   async deleteUserById(id: string) {
     try {
       await this.prisma.user.delete({ where: { id } });
@@ -22,7 +22,7 @@ export class UserService {
     }
   }
 
-  // EDIT USER BY ID
+
   async editUserById(id: string, editUserDto: EditUserDto) {
     try {
       await this.prisma.user.update({
@@ -35,7 +35,6 @@ export class UserService {
     }
   }
 
-  // ADD CART USER
   async updateCartUser(id: string, cartUser: []) {
     try {
       return await this.prisma.user.update({
@@ -49,7 +48,6 @@ export class UserService {
     }
   }
 
-  // GET DATA CART OF USER BY ID USER
   async getDataCartUserById(id: string) {
     try {
       console.log('id: ', id);

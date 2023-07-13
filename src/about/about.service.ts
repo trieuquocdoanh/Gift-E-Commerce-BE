@@ -4,8 +4,8 @@ import { AboutDto } from './dto';
 
 @Injectable()
 export class AboutService {
-  constructor(private prisma: PrismaService) {}
-  // GET DATA ABOUT
+  constructor(private prisma: PrismaService) { }
+
   getDataAbout() {
     try {
       return this.prisma.about.findMany();
@@ -14,7 +14,7 @@ export class AboutService {
     }
   }
 
-  // ADD DATA ABOUT
+
   async addDataAbout(dto: AboutDto) {
     try {
       await this.prisma.about.create({
@@ -27,7 +27,7 @@ export class AboutService {
         },
       });
 
-      // RETURN
+
       return 'THÊM DATA ABOUT THÀNH CÔNG';
     } catch (err) {
       return 'LỖI SERVER';

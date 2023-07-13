@@ -50,7 +50,5 @@ export class ProductDto {
   @IsNotEmpty()
   comment: [];
 
-  // @IsBoolean()
-  // @IsNotEmpty()
-  // new_arrival: boolean;
+
 }
