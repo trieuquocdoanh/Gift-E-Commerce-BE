@@ -12,7 +12,7 @@ export class AuthService {
     private prisma: PrismaService,
     private jwt: JwtService,
     private config: ConfigService
-  ) {}
+  ) { }
 
   async register(dto: AuthDtoRegister) {
     const hashedPassword = await argon.hash(dto.password);
@@ -49,7 +49,7 @@ export class AuthService {
       user.email,
       user.user_name,
       user.createdAt,
-      user.admin
+      user.admin,
     );
   }
   async signToken(
@@ -57,7 +57,7 @@ export class AuthService {
     email: string,
     user_name: string,
     createdAt: Date,
-    admin: boolean
+    admin: boolean,
   ): Promise<string> {
     const payload = {
       id,

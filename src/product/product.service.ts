@@ -4,7 +4,7 @@ import { ProductDto } from "./dto";
 
 @Injectable()
 export class ProductService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
 
   // GET ALL PRODUCT
   getAllProduct() {

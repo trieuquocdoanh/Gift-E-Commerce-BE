@@ -1,22 +1,15 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Post,
-  Query,
-  Patch,
-} from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Query } from "@nestjs/common";
 import { ProductDto } from "./dto";
 import { ProductService } from "./product.service";
 
+// ROUTES CỦA PRODUCT
 @Controller("products")
 export class ProductController {
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService) { }
 
   // ADD NEW PRODUCT
-  @Post()
-  addNewProduct(@Body() dto: any) {
+  @Post("add/new")
+  addNewProduct(@Body() dto: ProductDto) {
     return this.productService.addNewProduct(dto);
   }
 
@@ -37,11 +30,5 @@ export class ProductController {
   @Get(":id")
   getProductById(@Param("id") id: number) {
     return this.productService.getProductById(id);
-  }
-
-  @Patch(":id")
-  updateProduct(@Param("id") id: number, @Body() params: any) {
-    console.log("id", id);
-    return this.productService.updateProduct(id, params);
   }
 }

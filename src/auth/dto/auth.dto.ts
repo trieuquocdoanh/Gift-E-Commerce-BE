@@ -29,4 +29,4 @@ export class AuthDtoLogin {
   password: string;
 }
 
-export class EditUserDto extends PartialType(AuthDtoRegister) {}
+export class EditUserDto extends PartialType(AuthDtoRegister) { }
