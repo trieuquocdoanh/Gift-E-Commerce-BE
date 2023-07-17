@@ -50,6 +50,7 @@ export class AuthService {
       user.user_name,
       user.createdAt,
       user.admin,
+      user.active
     );
   }
   async signToken(
@@ -58,6 +59,7 @@ export class AuthService {
     user_name: string,
     createdAt: Date,
     admin: boolean,
+    active: boolean
   ): Promise<string> {
     const payload = {
       id,
@@ -65,6 +67,7 @@ export class AuthService {
       user_name,
       createdAt,
       admin,
+      active,
     };
     const secret = this.config.get("JWT_SECRET");
     const token = await this.jwt.signAsync(payload, {
