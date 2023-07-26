@@ -29,6 +29,7 @@ export class ProductService {
           contains: classify,
           mode: "insensitive",
         },
+        active: true,
       },
     });
   }
